@@ -1,0 +1,14 @@
+def sum_of_multiples(n, x):
+    
+    m = (n - 1) // x
+    return x * m * (m + 1) // 2
+
+def sum_of_multiples_below(n):
+    return (sum_of_multiples(n, 3) + sum_of_multiples(n, 5) 
+            - sum_of_multiples(n, 15))
+
+t = int(input().strip())
+
+for _ in range(t):
+    n = int(input().strip())
+    print(sum_of_multiples_below(n))
