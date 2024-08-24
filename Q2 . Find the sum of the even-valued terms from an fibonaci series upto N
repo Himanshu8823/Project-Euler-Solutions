@@ -1,0 +1,18 @@
+#!/bin/python3
+
+import sys
+
+
+t = int(input().strip())
+lis = []
+for a0 in range(t):
+    n = int(input().strip())
+    
+    firstterm, lastterm = 0, 1
+    total = 0
+    while firstterm < n:
+        if firstterm % 2 == 0:
+            total += firstterm
+        firstterm , lastterm = lastterm , firstterm + lastterm
+            
+    print(total)
