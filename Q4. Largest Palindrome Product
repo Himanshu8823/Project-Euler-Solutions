@@ -1,0 +1,42 @@
+def reverse(st):
+    return st[::-1]
+
+def All_Palindromes():
+    palindromes = set()
+    for i in range(999, 99, -1):
+        for j in range(i, 99, -1):
+            multi = i * j
+            st = str(multi)
+            if st == reverse(st):
+                palindromes.add(multi)
+    return sorted(palindromes)
+
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    result = 0
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] <= target:
+            result = arr[mid]
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return result
+
+
+palindromes = All_Palindromes()
+
+
+t = int(input().strip())
+
+for _ in range(t):
+    n = int(input().strip())
+
+    if n < 101:
+        print(0)
+    else:
+        largest = binary_search(palindromes, n)
+        print(largest)
